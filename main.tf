@@ -26,6 +26,7 @@ resource "aws_subnet" "my_subnet" {
   vpc_id            = aws_vpc.my_vpc.id
   cidr_block        = "10.0.1.0/24"
   availability_zone = "ap-south-2a"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "terraform-subnet"
@@ -86,6 +87,7 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
   subnet_id     = aws_subnet.my_subnet.id
+  associate_public_ip_address = true
   security_groups = [aws_security_group.sg.id]
 
   tags = {
