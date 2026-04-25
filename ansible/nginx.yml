@@ -1,0 +1,16 @@
+---
+- name: Install and Enable NGINX
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Install nginx
+      dnf:
+        name: nginx
+        state: present
+
+    - name: Start and enable nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes

@@ -1,0 +1,7 @@
+[webservers]
+16.112.70.249
+16.112.131.242
+
+[webservers:vars]
+ansible_user=ec2-user
+ansible_ssh_private_key_file=/home/ec2-user/.ssh/supraja-key.pem
