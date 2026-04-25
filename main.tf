@@ -89,6 +89,7 @@ resource "aws_instance" "web" {
   subnet_id     = aws_subnet.my_subnet.id
   associate_public_ip_address = true
   security_groups = [aws_security_group.sg.id]
+  key_name = "supraja-key"
 
   tags = {
     Name = "terraform-ec2-${count.index + 1}"
